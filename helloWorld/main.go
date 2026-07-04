@@ -4,10 +4,10 @@ import (
 	"fmt"
 )
 
-func hello() string {
-	return "hello world"
+func hello(name string) string {
+	return "hello " + name
 }
 
 func main() {
-	fmt.Println(hello())
+	fmt.Println(hello("maneesh"))
 }
