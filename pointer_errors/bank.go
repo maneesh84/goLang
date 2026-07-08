@@ -1,6 +1,9 @@
 package banksError
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Bank struct{
 	balance Bitcoin
@@ -11,8 +14,12 @@ func (b *Bank) Deposit(amount Bitcoin ){
 	// fmt.Printf("address of balance in Deposit is %p \n", &b.balance)
 }
 
-func (b *Bank) Withdraw(amount Bitcoin){
+func (b *Bank) Withdraw(amount Bitcoin) error {
+	if(amount >b.balance){
+		return  errors.New("insufficient balance")
+	}
 	b.balance-=amount
+	return  nil
 }
 
 
