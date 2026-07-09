@@ -13,7 +13,7 @@ func TestDictionary(t *testing.T){
 	t.Run("unknown word", func(t *testing.T)  {
 		dict := Dictionary{"test":"this is first test"}
 		_,err := dict.Search("word")
-		want:= "word is not in dictionary"
+		want:= ErrorNotFound.Error()
 		if(err==nil){
 			t.Fatalf("expect error but got nothing")
 		}
